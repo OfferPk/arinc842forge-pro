@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" style="background:#0a0e17; font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,monospace;">
+  <defs>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <text x="40" y="45" fill="#38bdf8" font-size="20" font-weight="bold" letter-spacing="1">ARINC 842 WIRELESS AIRPORT GATELINK COMMUNICATIONS (WAGC)</text>
+  <text x="40" y="70" fill="#94a3b8" font-size="12">End-to-End Surface Data Link Architecture • RTCA DO-355 &amp; DO-326A Airworthiness Security Shield</text>
+  <line x1="40" y1="85" x2="960" y2="85" stroke="#334155" stroke-width="1.5" />
+
+  <!-- AIRCRAFT DOMAIN (LEFT) -->
+  <rect x="40" y="110" width="410" height="440" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" />
+  <rect x="40" y="110" width="410" height="35" rx="8" fill="#1e293b" />
+  <text x="60" y="133" fill="#38bdf8" font-size="14" font-weight="bold">AIRCRAFT AVIONICS &amp; SURFACE LINK DOMAIN</text>
+
+  <!-- Aircraft Sub-boxes -->
+  <!-- WOW Interlock -->
+  <rect x="65" y="165" width="360" height="65" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1" />
+  <circle cx="85" cy="197" r="6" fill="#10b981" filter="url(#glow)" />
+  <text x="105" y="190" fill="#f8fafc" font-size="12" font-weight="bold">ARINC 842 Gate Interlock System</text>
+  <text x="105" y="210" fill="#94a3b8" font-size="10">Weight-on-Wheels (WOW) • Ground Speed &lt; 15 kt • Park Brake Locked</text>
+
+  <!-- Dual Stream Engine -->
+  <rect x="65" y="245" width="360" height="95" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+  <text x="80" y="270" fill="#38bdf8" font-size="12" font-weight="bold">Dual-Stream Data Pipeline</text>
+  <text x="80" y="292" fill="#e2e8f0" font-size="11">▲ QAR / FOQA Bulk Offload (~1.25 GB / flight cycle)</text>
+  <text x="80" y="315" fill="#10b981" font-size="11">▼ ARINC 665 LSAP Load (FMS NavDB &amp; EEC Flight Ops, 24.2 MB)</text>
+
+  <!-- DO-355 Firewall & EAP-TLS -->
+  <rect x="65" y="355" width="360" height="75" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1" />
+  <text x="80" y="378" fill="#f59e0b" font-size="12" font-weight="bold">RTCA DO-355 Airworthiness Security Gateway</text>
+  <text x="80" y="398" fill="#94a3b8" font-size="10">802.1X EAP-TLS Mutual Auth • RSA-4096 / SHA-384 Certificates</text>
+  <text x="80" y="415" fill="#94a3b8" font-size="10">IPsec ESP AES-256-GCM Tunnel • AISD to ACD Domain Isolation</text>
+
+  <!-- ARINC 429 Discrete Bus -->
+  <rect x="65" y="445" width="360" height="85" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
+  <text x="80" y="468" fill="#94a3b8" font-size="12" font-weight="bold">ARINC 429 Glass-Cockpit Bus Words</text>
+  <text x="80" y="490" fill="#38bdf8" font-size="10" font-family="monospace">Label 270: WAGC Status &amp; Inhibit State [P: ODD VALID]</text>
+  <text x="80" y="510" fill="#38bdf8" font-size="10" font-family="monospace">Label 350: Signal Margin &amp; Link Quality Factor [P: ODD VALID]</text>
+
+  <!-- RF LINK / PHYSICAL MEDIUM (CENTER) -->
+  <g transform="translate(450, 110)">
+    <!-- Connection lines -->
+    <path d="M 0,97 L 100,97" stroke="#10b981" stroke-width="3" stroke-dasharray="6,4" />
+    <path d="M 0,200 L 100,200" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6,4" />
+    <path d="M 0,300 L 100,300" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,4" />
+
+    <!-- Center Badge -->
+    <rect x="10" y="140" width="80" height="130" rx="6" fill="#0284c7" opacity="0.9" filter="url(#glow)" />
+    <text x="50" y="170" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">RF GATELINK</text>
+    <text x="50" y="195" fill="#ffffff" font-size="9" text-anchor="middle">802.11ac 5GHz</text>
+    <text x="50" y="215" fill="#ffffff" font-size="9" text-anchor="middle">Private 5G NR</text>
+    <text x="50" y="235" fill="#ffffff" font-size="9" text-anchor="middle">Optical GigE</text>
+    <text x="50" y="255" fill="#ffffff" font-size="8" text-anchor="middle">&lt; 15m Range</text>
+  </g>
+
+  <!-- AIRPORT GROUND NETWORK DOMAIN (RIGHT) -->
+  <rect x="550" y="110" width="410" height="440" rx="8" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" />
+  <rect x="550" y="110" width="410" height="35" rx="8" fill="#1e293b" />
+  <text x="570" y="133" fill="#10b981" font-size="14" font-weight="bold">AIRPORT GROUND &amp; AIRLINE OPS DOMAIN</text>
+
+  <!-- Gate AP Stanchion -->
+  <rect x="575" y="165" width="360" height="75" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1" />
+  <text x="590" y="190" fill="#10b981" font-size="12" font-weight="bold">Gate Stanchion Wireless Access Point (WAP)</text>
+  <text x="590" y="210" fill="#94a3b8" font-size="10">Dedicated Ramp Directional Antennas • WPA3-Enterprise</text>
+  <text x="590" y="228" fill="#94a3b8" font-size="10">802.11r Fast BSS Transition • Carrier Sense Interlock</text>
+
+  <!-- Ground Security Gateway -->
+  <rect x="575" y="255" width="360" height="85" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+  <text x="590" y="280" fill="#38bdf8" font-size="12" font-weight="bold">Airline Ground Security Gateway (GSG)</text>
+  <text x="590" y="300" fill="#94a3b8" font-size="10">AAA RADIUS / PKI Server • Mutual Certificate Revocation Check (OCSP)</text>
+  <text x="590" y="320" fill="#94a3b8" font-size="10">IPsec Concentrator • Dynamic SA Key Renegotiation</text>
+
+  <!-- Airline Maintenance & Flight Ops Center -->
+  <rect x="575" y="355" width="360" height="175" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
+  <text x="590" y="380" fill="#f8fafc" font-size="12" font-weight="bold">Ground Operational Data Repositories</text>
+  
+  <rect x="590" y="395" width="330" height="38" rx="4" fill="#1e293b" />
+  <text x="605" y="418" fill="#38bdf8" font-size="11">QAR FOQA Flight Analytics &amp; Exceedance Ingestion</text>
+
+  <rect x="590" y="440" width="330" height="38" rx="4" fill="#1e293b" />
+  <text x="605" y="463" fill="#10b981" font-size="11">ARINC 665 LSAP Library &amp; Part Signature Validation</text>
+
+  <rect x="590" y="485" width="330" height="35" rx="4" fill="#1e293b" />
+  <text x="605" y="507" fill="#f59e0b" font-size="11">FAA AC 119-1 Airworthiness Security Audit Logger</text>
+
+  <!-- Footer Banner -->
+  <text x="500" y="575" fill="#64748b" font-size="11" text-anchor="middle">ARINC842Forge Pro v1.0.0 • Verified Compliant with ARINC Project Paper 842, RTCA DO-355, RTCA DO-326A &amp; FAA AC 119-1</text>
+</svg>
